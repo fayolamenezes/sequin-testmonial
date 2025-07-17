@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infinite Testimonial Carousel</title>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+    font-family: sans-serif;
+    background: #f0f0f0;
+    overflow-x: hidden;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertical centering */
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      width: max-content;
+    }
+
+    .testimonial {
+      flex: 0 0 auto;
+      width: 630px;
+      height: 400px;
+      margin: 0 1rem;
+      padding: 1rem;
+      background: #d0bae9;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial p {
+      font-size: 1rem;
+      color: #383838;
+    }
+
+    .testimonial h4 {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-wrapper">
+    <div class="carousel" id="carousel">
+      <!-- These testimonials will repeat -->
+      <div class="testimonial">
+        <p>"Amazing service and support!"</p>
+        <h4>- Alice</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Highly recommended for anyone."</p>
+        <h4>- Bob</h4>
+      </div>
+      <div class="testimonial">
+        <p>"A life-changing experience."</p>
+        <h4>- Carol</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Quick, efficient, and friendly."</p>
+        <h4>- David</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Exceptional quality and service."</p>
+        <h4>- Eva</h4>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.getElementById("carousel");
+
+    // Duplicate items to allow seamless loop
+    const items = Array.from(carousel.children);
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+
+    // Get total width of all items
+    let totalWidth = 0;
+    items.forEach(item => {
+      totalWidth += item.offsetWidth + parseInt(getComputedStyle(item).marginLeft) + parseInt(getComputedStyle(item).marginRight);
+    });
+
+    // Animate using GSAP modifiers
+    gsap.to(carousel, {
+      x: `-=${totalWidth}px`,
+      duration: 20,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth) // wrap around
+      }
+    });
+  </script>
+</body>
+</html>
