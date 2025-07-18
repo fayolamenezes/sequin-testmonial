@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Infinite Testimonial Carousel</title>
+  <title>Testimonial Carousel</title>
   <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -13,13 +14,13 @@
     }
 
     body {
-    font-family: sans-serif;
-    background: #f0f0f0;
-    overflow-x: hidden;
-    height: 100vh; /* Full screen height */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertical centering */
+      font-family: 'Albert Sans', sans-serif;
+      background: #f0f0f0;
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .carousel-wrapper {
@@ -35,68 +36,146 @@
 
     .testimonial {
       flex: 0 0 auto;
-      width: 630px;
-      height: 400px;
+      width: 620px;
+      height: 300px;
       margin: 0 1rem;
-      padding: 1rem;
-      background: #d0bae9;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 3rem;
+      background-image: url("https://sequins.boutique/wp-content/uploads/2025/07/caa21e12-b2c3-4e3c-adda-8836c3512730-2.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
     }
 
-    .testimonial p {
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0.7rem;
+    }
+
+    .stars svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .quote {
       font-size: 1rem;
-      color: #383838;
+      text-transform: uppercase;
+      line-height: 1.5;
     }
 
-    .testimonial h4 {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #000000;
+    .author {
+      margin-top: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: #FEDA36;
+    }
+
+    .designation {
+      font-family: 'Albert Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #ddd;
+      text-transform: uppercase;
+      padding-top: 10px;
     }
 
     @media (max-width: 768px) {
       .testimonial {
-        width: 80vw;
-        height: 50vw;
-        margin: 0 0.5rem;
-        padding: 1rem;
+        width: 85vw;
+        height: auto;
+        padding: 1.5rem;
       }
 
-      .testimonial p {
-        font-size: 0.95rem;
-      }
-
-      .testimonial h4 {
+      .quote {
         font-size: 1rem;
       }
-    }
 
+      .author {
+        font-size: 1.1rem;
+      }
+
+      .designation {
+        font-size: 0.8rem;
+      }
+
+      .stars svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   </style>
 </head>
 <body>
+  <svg width="0" height="0">
+    <defs>
+      <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="22.91%" stop-color="#FEDA36"/>
+        <stop offset="36.13%" stop-color="#FEDA36"/>
+        <stop offset="45.86%" stop-color="#FFEBB1"/>
+        <stop offset="53.88%" stop-color="#FFEBB1"/>
+        <stop offset="61.14%" stop-color="#FEDA36"/>
+        <stop offset="87.2%" stop-color="#FFBC00"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
   <div class="carousel-wrapper">
     <div class="carousel" id="carousel">
-      <!-- These testimonials will repeat -->
+      <!-- Testimonial Card -->
       <div class="testimonial">
-        <p>"Amazing service and support!"</p>
-        <h4>- Alice</h4>
+        <div class="stars">
+          <!-- SVG Star -->
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+        </div>
+        <p class="quote">
+          At SEQUINS, we believe fashion isn’t just about what you<br>wear—it’s about how you feel. Every piece we create tells<br>a story, celebrates individuality, and honors the beauty<br>of tradition while embracing modern elegance.
+        </p>
+        <div class="author">Jessica Bright</div>
+        <div class="designation">Fashion Influencer</div>
       </div>
+
+      <!-- Repeat the same testimonial -->
       <div class="testimonial">
-        <p>"Highly recommended for anyone."</p>
-        <h4>- Bob</h4>
-      </div>
-      <div class="testimonial">
-        <p>"A life-changing experience."</p>
-        <h4>- Carol</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Quick, efficient, and friendly."</p>
-        <h4>- David</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Exceptional quality and service."</p>
-        <h4>- Eva</h4>
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="url(#starGradient)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.91 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.09 8.26L12 2Z"/>
+          </svg>
+        </div>
+        <p class="quote">
+          At SEQUINS, we believe fashion isn’t just about what you<br>wear—it’s about how you feel. Every piece we create tells<br>a story, celebrates individuality, and honors the beauty<br>of tradition while embracing modern elegance.
+        </p>
+        <div class="author">Jessica Bright</div>
+        <div class="designation">Fashion Influencer</div>
       </div>
     </div>
   </div>
@@ -104,27 +183,28 @@
   <script>
     const carousel = document.getElementById("carousel");
 
-    // Duplicate items to allow seamless loop
+    // Duplicate items for infinite loop
     const items = Array.from(carousel.children);
     items.forEach(item => {
       const clone = item.cloneNode(true);
       carousel.appendChild(clone);
     });
 
-    // Get total width of all items
+    // Get total width
     let totalWidth = 0;
     items.forEach(item => {
-      totalWidth += item.offsetWidth + parseInt(getComputedStyle(item).marginLeft) + parseInt(getComputedStyle(item).marginRight);
+      const style = getComputedStyle(item);
+      totalWidth += item.offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
     });
 
-    // Animate using GSAP modifiers
+    // Animate using GSAP
     gsap.to(carousel, {
       x: `-=${totalWidth}px`,
-      duration: 20,
+      duration: 30,
       ease: "none",
       repeat: -1,
       modifiers: {
-        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth) // wrap around
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
       }
     });
   </script>
